@@ -40,6 +40,11 @@
       background-color: #2e2e2e; /* Dark mode friendly input background */
       color: white; /* Light text for dark mode */
     }
+    /* Remove the white border when the search bar is highlighted */
+    #search-bar:focus {
+      outline: none;
+      border: 1px solid #555; /* Subtle border for dark mode */
+    }
     #content {
       overflow-y: auto;
       max-height: 500px;

@@ -3,10 +3,10 @@
 - X  Pressing enter chooses first result
 - X Accessible with mouse
 - X Ability to copy text
+- X Test Scrolling
+- X Make sure last left open one stays
 - How to make it a legit app that doesn't need a terminal to run. 
 - Add real content and begin using it. 
-- Make sure last left open one stays
-- Test Scrolling
 - Pressing enter choose first result 
 - Pressing ESC unfocuses.
 - Scroll up and down with D, U, and K, and J keys. 

@@ -48,19 +48,19 @@ window.addEventListener('DOMContentLoaded', () => {
 // Add functionality to handle search and display matching files
 const contentDiv = document.getElementById('content');
 
-// Function to update the search results dropdown
+// Update dropdown styling to remove rounded borders and match the search bar background
 function updateSearchResults(files) {
   const dropdown = document.getElementById('search-dropdown');
   if (!dropdown) {
     const newDropdown = document.createElement('ul');
     newDropdown.id = 'search-dropdown';
     newDropdown.style.position = 'absolute';
-    newDropdown.style.backgroundColor = 'white';
-    newDropdown.style.color = 'black';
+    newDropdown.style.backgroundColor = '#2e2e2e'; // Match search bar background
+    newDropdown.style.color = '#d3d3d3'; // Light text for dark mode
     newDropdown.style.listStyle = 'none';
     newDropdown.style.padding = '5px';
     newDropdown.style.margin = '0';
-    newDropdown.style.border = '1px solid gray';
+    newDropdown.style.border = '1px solid #555'; // Subtle border for dark mode
     document.getElementById('search-container').appendChild(newDropdown);
   }
 
@@ -71,6 +71,16 @@ function updateSearchResults(files) {
     const listItem = document.createElement('li');
     listItem.textContent = file;
     listItem.style.cursor = 'pointer';
+    listItem.style.padding = '5px';
+    listItem.style.borderBottom = '1px solid #333'; // Subtle separator for items
+    listItem.style.backgroundColor = '#2e2e2e'; // Match dropdown background
+    listItem.style.color = '#d3d3d3'; // Match text color
+    listItem.addEventListener('mouseover', () => {
+      listItem.style.backgroundColor = '#333'; // Highlight on hover
+    });
+    listItem.addEventListener('mouseout', () => {
+      listItem.style.backgroundColor = '#2e2e2e'; // Reset background on mouse out
+    });
     listItem.addEventListener('click', () => {
       loadAndRender(file);
       dropdownList.innerHTML = ''; // Clear dropdown after selection
