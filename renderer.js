@@ -189,3 +189,10 @@ window.addEventListener('keydown', (event) => {
 
 // Ensure the content area is focusable to capture key events
 contentEl.setAttribute('tabindex', '0');
+
+// Add functionality to unfocus any focused area when 'Escape' is pressed
+window.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    document.activeElement.blur(); // Unfocus the currently focused element
+  }
+});
