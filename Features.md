@@ -11,11 +11,14 @@
 - X Improve search header
 - X Remove search bugs
 - X Pressing enter choose first result 
-- Header search more like vs code
-- How to make it a legit app that doesn't need a terminal to run. 
 - Fixing cursor directional issue. 
-- Improve styling. 
 - Ability to search within Shortcut. 
+- Header search more like vs code
+- Improve styling. 
 - Ability to add shortcut files. 
+
+
+Later![alt text](image.png)
 - How to deploy this to app stores?
 - Deploy outside mac ecossytem 
+- How to make it a legit app that doesn't need a terminal to run. 

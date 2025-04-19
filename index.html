@@ -22,14 +22,21 @@
       justify-content: center; /* Center the search bar */
       padding: 0 10px;
       -webkit-app-region: drag; /* Enable drag for Electron */
-      cursor: move; /* Show 4-pointed directional cursor */
+      cursor: move; /* Show multi-directional drag cursor */
+    }
+    /* Ensure drag cursor appears on hover over the header */
+    #header:hover {
+      cursor: grab; /* Ensure grab cursor appears on hover */
+    }
+    #header:active {
+      cursor: grabbing; /* Show grabbing cursor when active */
     }
     /* Ensure no extra white square or padding below the search bar */
     #search-container {
       flex-grow: 0;
       margin: 0; /* Remove any margin */
       padding: 0; /* Remove any padding */
-      -webkit-app-region: no-drag; /* Disable drag for the search bar */
+      -webkit-app-region: no-drag; /* Prevent drag interference from the search bar */
     }
     #search-bar {
       width: 80%;
@@ -48,7 +55,7 @@
     #content {
       overflow-y: auto;
       max-height: 500px;
-      cursor: move;
+      cursor: default; /* Use default cursor for the text area */
       -webkit-app-region: no-drag; /* Disable drag for content area */
       color: #d3d3d3; /* Slightly darker than bright white */
     }
