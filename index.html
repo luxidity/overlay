@@ -47,6 +47,20 @@
       -webkit-app-region: no-drag; /* Disable drag for content area */
       color: #d3d3d3; /* Slightly darker than bright white */
     }
+    /* Make the scrollbar dark mode friendly */
+    #content::-webkit-scrollbar {
+      width: 8px;
+    }
+    #content::-webkit-scrollbar-track {
+      background: #1e1e1e; /* Dark mode friendly track */
+    }
+    #content::-webkit-scrollbar-thumb {
+      background: #555; /* Dark mode friendly thumb */
+      border-radius: 4px;
+    }
+    #content::-webkit-scrollbar-thumb:hover {
+      background: #777; /* Slightly lighter on hover */
+    }
   </style>
 </head>
 <body>
