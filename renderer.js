@@ -2,6 +2,7 @@
 // This file is the renderer script for the Electron app. It handles loading and rendering markdown content in the DOM.
 
 const contentEl = document.getElementById('content');
+let searchBar = document.getElementById('search-bar'); // Use 'let' to avoid redeclaration issues
 
 /**
  * Converts markdown text into HTML using the `shortcutAPI.parseMarkdown` method and updates the `content` element in the DOM.
@@ -36,16 +37,15 @@ function loadAndRender(filename) {
 }
 
 /**
- * Automatically loads and renders a default markdown file (`vscode.md`) when the DOM is fully loaded.
+ * Automatically loads and renders a default markdown file (`VS Code.md`) when the DOM is fully loaded.
  */
 window.addEventListener('DOMContentLoaded', () => {
-  const defaultFile = 'vscode.md';
+  const defaultFile = 'VS Code.md';
   console.log('Loading the default file:', defaultFile);
   loadAndRender(defaultFile);
 });
 
 // Add functionality to handle search and display matching files
-const searchBar = document.getElementById('search-bar');
 const contentDiv = document.getElementById('content');
 
 // Function to update the search results dropdown
@@ -93,6 +93,19 @@ document.addEventListener('click', (event) => {
     const dropdown = document.getElementById('search-dropdown');
     if (dropdown) {
       dropdown.innerHTML = '';
+    }
+  }
+});
+
+// Update the '/' key focus logic to avoid conflicts
+window.addEventListener('keydown', (event) => {
+  if (event.key === '/' && !event.altKey && !event.ctrlKey && !event.metaKey && !event.shiftKey) {
+    event.preventDefault(); // Prevent default behavior of '/'
+    if (!searchBar) {
+      searchBar = document.getElementById('search-bar'); // Reassign if necessary
+    }
+    if (searchBar) {
+      searchBar.focus();
     }
   }
 });

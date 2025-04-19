@@ -54,6 +54,26 @@ app.whenReady().then(() => {
 });
 
 /**
+ * Add a listener for the '/' key to focus the search bar when the overlay is active
+ */
+app.on('browser-window-focus', () => {
+  mainWindow.webContents.removeAllListeners('before-input-event'); // Remove any existing listeners to avoid duplicates
+  mainWindow.webContents.on('before-input-event', (event, input) => {
+    if (input.key === '/' && !input.alt && !input.control && !input.meta && !input.shift) {
+      event.preventDefault(); // Prevent default behavior of '/'
+      mainWindow.webContents.executeJavaScript(`
+        (function() {
+          const searchBar = document.getElementById('search-bar');
+          if (searchBar) {
+            searchBar.focus();
+          }
+        })();
+      `);
+    }
+  });
+});
+
+/**
  * Unregisters all global shortcuts when the app is about to quit.
  */
 app.on('will-quit', () => {
