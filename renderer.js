@@ -112,7 +112,7 @@ searchBar.addEventListener('input', () => {
   updateSearchResults(matchingFiles);
 });
 
-// Update search functionality to clear the search bar and unfocus it after selection
+// Fix issue where multiple items are selected when navigating the dropdown
 searchBar.addEventListener('keydown', (event) => {
   const dropdown = document.getElementById('search-dropdown');
   if (!dropdown || dropdown.children.length === 0) return;
@@ -140,6 +140,18 @@ searchBar.addEventListener('keydown', (event) => {
   }
 });
 
+function updateDropdownSelection(dropdown) {
+  Array.from(dropdown.children).forEach((child, index) => {
+    if (index === selectedIndex) {
+      child.style.backgroundColor = '#2e2e2e'; // Highlight selected item
+      child.style.color = 'white';
+    } else {
+      child.style.backgroundColor = '#1e1e1e'; // Reset others to match dropdown background
+      child.style.color = '#d4d4d4';
+    }
+  });
+}
+
 // Ensure dropdown is cleared and hidden when clicking outside
 document.addEventListener('click', (event) => {
   if (!document.getElementById('search-container').contains(event.target)) {
@@ -166,18 +178,6 @@ window.addEventListener('keydown', (event) => {
 
 // Add keyboard navigation for the search dropdown
 let selectedIndex = -1; // Track the currently selected index in the dropdown
-
-function updateDropdownSelection(dropdown) {
-  Array.from(dropdown.children).forEach((child, index) => {
-    if (index === selectedIndex) {
-      child.style.backgroundColor = '#2e2e2e'; // Highlight selected item
-      child.style.color = 'white';
-    } else {
-      child.style.backgroundColor = 'white'; // Reset others
-      child.style.color = 'black';
-    }
-  });
-}
 
 // Add keyboard navigation for scrolling the content area
 contentEl.addEventListener('keydown', (event) => {
