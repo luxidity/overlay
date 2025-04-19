@@ -162,3 +162,17 @@ function updateDropdownSelection(dropdown) {
     }
   });
 }
+
+// Add keyboard navigation for scrolling the content area
+contentEl.addEventListener('keydown', (event) => {
+  if (event.key === 'ArrowDown' || event.key === 'j') {
+    event.preventDefault(); // Prevent default scrolling behavior
+    contentEl.scrollBy({ top: 30, behavior: 'smooth' }); // Scroll down
+  } else if (event.key === 'ArrowUp' || event.key === 'k') {
+    event.preventDefault(); // Prevent default scrolling behavior
+    contentEl.scrollBy({ top: -30, behavior: 'smooth' }); // Scroll up
+  }
+});
+
+// Ensure the content area is focusable to capture key events
+contentEl.setAttribute('tabindex', '0');
