@@ -180,10 +180,23 @@ window.addEventListener('keydown', (event) => {
 
   if (event.key === 'ArrowDown' || event.key === 'j') {
     event.preventDefault(); // Prevent default scrolling behavior
-    contentEl.scrollBy({ top: 30, behavior: 'smooth' }); // Scroll down
+    contentEl.scrollBy({ top: 30, behavior: 'auto' }); // Scroll down
   } else if (event.key === 'ArrowUp' || event.key === 'k') {
     event.preventDefault(); // Prevent default scrolling behavior
-    contentEl.scrollBy({ top: -30, behavior: 'smooth' }); // Scroll up
+    contentEl.scrollBy({ top: -30, behavior: 'auto' }); // Scroll up
+  }
+});
+
+// Add faster scrolling for 'D' (down) and 'U' (up)
+window.addEventListener('keydown', (event) => {
+  if (document.activeElement === searchBar) return; // Skip if search bar is focused
+
+  if (event.key === 'd') {
+    event.preventDefault(); // Prevent default scrolling behavior
+    contentEl.scrollBy({ top: 150, behavior: 'smooth' }); // Scroll down faster
+  } else if (event.key === 'u') {
+    event.preventDefault(); // Prevent default scrolling behavior
+    contentEl.scrollBy({ top: -150, behavior: 'smooth' }); // Scroll up faster
   }
 });
 
