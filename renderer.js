@@ -34,6 +34,7 @@ function loadAndRender(filename) {
   }
   console.log(`File content loaded: ${fullContent.substring(0, 100)}...`);
   renderMarkdown(fullContent);
+  contentEl.scrollTop = 0; // Reset scroll bar to the top
 }
 
 /**
