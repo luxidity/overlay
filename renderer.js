@@ -98,15 +98,28 @@ searchBar.addEventListener('input', () => {
 
 // Update search functionality to clear the search bar and unfocus it after selection
 searchBar.addEventListener('keydown', (event) => {
-  if (event.key === 'Enter') {
-    const dropdown = document.getElementById('search-dropdown');
-    if (dropdown && dropdown.firstChild) {
-      const firstResult = dropdown.firstChild.textContent;
-      loadAndRender(firstResult);
+  const dropdown = document.getElementById('search-dropdown');
+  if (!dropdown || dropdown.children.length === 0) return;
+
+  if (event.key === 'ArrowDown' || event.key === 'Tab') {
+    event.preventDefault(); // Prevent default tab behavior
+    selectedIndex = (selectedIndex + 1) % dropdown.children.length; // Move down
+    updateDropdownSelection(dropdown);
+  } else if (event.key === 'ArrowUp' || (event.key === 'Tab' && event.shiftKey)) {
+    event.preventDefault(); // Prevent default shift+tab behavior
+    selectedIndex = (selectedIndex - 1 + dropdown.children.length) % dropdown.children.length; // Move up
+    updateDropdownSelection(dropdown);
+  } else if (event.key === 'Enter' && selectedIndex >= 0) {
+    event.preventDefault();
+    const selectedItem = dropdown.children[selectedIndex];
+    if (selectedItem) {
+      const fileName = selectedItem.textContent;
+      loadAndRender(fileName);
       dropdown.innerHTML = ''; // Clear dropdown after selection
       dropdown.style.display = 'none'; // Hide the dropdown
       searchBar.value = ''; // Clear the search bar text
       searchBar.blur(); // Unfocus the search bar
+      selectedIndex = -1; // Reset selection index
     }
   }
 });
@@ -134,3 +147,18 @@ window.addEventListener('keydown', (event) => {
     }
   }
 });
+
+// Add keyboard navigation for the search dropdown
+let selectedIndex = -1; // Track the currently selected index in the dropdown
+
+function updateDropdownSelection(dropdown) {
+  Array.from(dropdown.children).forEach((child, index) => {
+    if (index === selectedIndex) {
+      child.style.backgroundColor = '#2e2e2e'; // Highlight selected item
+      child.style.color = 'white';
+    } else {
+      child.style.backgroundColor = 'white'; // Reset others
+      child.style.color = 'black';
+    }
+  });
+}
