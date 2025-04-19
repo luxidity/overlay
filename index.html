@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Shortcut Overlay</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline';">
+  <style>
+    body {
+      font-family: sans-serif;
+      background: rgba(30, 30, 30, 0.9);
+      color: white;
+      padding: 20px;
+      margin: 0;
+    }
+    #content {
+      overflow-y: auto;
+      max-height: 500px;
+    }
+  </style>
+</head>
+<body>
+  <div id="content"></div>
+  <script src="renderer.js"></script>
+</body>
+</html>
