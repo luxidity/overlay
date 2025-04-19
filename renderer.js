@@ -203,10 +203,10 @@ window.addEventListener('keydown', (event) => {
 
   if (event.key === 'd') {
     event.preventDefault(); // Prevent default scrolling behavior
-    contentEl.scrollBy({ top: 150, behavior: 'smooth' }); // Scroll down faster
+    contentEl.scrollBy({ top: 200, behavior: 'smooth' }); // Scroll down faster
   } else if (event.key === 'u') {
     event.preventDefault(); // Prevent default scrolling behavior
-    contentEl.scrollBy({ top: -150, behavior: 'smooth' }); // Scroll up faster
+    contentEl.scrollBy({ top: -200, behavior: 'smooth' }); // Scroll up faster
   }
 });
 

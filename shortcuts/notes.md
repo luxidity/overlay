@@ -19,7 +19,7 @@
 `Shift + Cmd + F`
 
 **Resize Text**  
-`Cmd + +` / `Cmd + -`
+`Cmd +` Or `Cmd -`
 
 **Find Note**  
 `Cmd + Option + F`

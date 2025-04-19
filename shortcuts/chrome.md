@@ -1,10 +1,22 @@
 ## Chrome Shortcuts
 
 **Open New Tab**  
-`Cmd + T`
+`Cmd + t`
 
 **Close Current Tab**  
-`Cmd + W`
+`Cmd + w`
+
+**Close Session**  
+`Cmd + Shift + w`
+
+**Restore Session**
+`Cmd + Shift + t`
 
 **Reopen Closed Tab**  
-`Cmd + Shift + T`
+`Cmd + Shift + t`
+
+**Cycle Tabs**  
+`Cmd + Shift + [ or ]`
+
+**History**  
+`Cmd + y`
