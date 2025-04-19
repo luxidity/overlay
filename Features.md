@@ -1,6 +1,19 @@
-- Making overlay dragable. 
+- X Making overlay dragable. 
 - X Highlight search with / or Cmd / while overlay is visible. 
 - X  Pressing enter chooses first result
 - X Accessible with mouse
 - X Ability to copy text
+- How to make it a legit app that doesn't need a terminal to run. 
+- Add real content and begin using it. 
+- Make sure last left open one stays
+- Test Scrolling
+- Pressing enter choose first result 
+- Pressing ESC unfocuses.
 - Scroll up and down with D, U, and K, and J keys. 
+- Header better. 
+- Fixing cursor directional issue. 
+- Improve styling. 
+- Ability to search within Shortcut. 
+- Ability to add shortcut files. 
+- How to deploy this to app stores?
+- Deploy outside mac ecossytem 

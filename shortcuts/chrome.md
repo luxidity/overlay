@@ -1,4 +1,3 @@
-// Example markdown file: shortcuts/chrome.md
 ## Chrome Shortcuts
 
 **Open New Tab**  
