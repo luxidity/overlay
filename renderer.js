@@ -87,6 +87,18 @@ searchBar.addEventListener('input', () => {
   updateSearchResults(matchingFiles);
 });
 
+// Update search functionality to handle 'Enter' key for selecting the first result
+searchBar.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    const dropdown = document.getElementById('search-dropdown');
+    if (dropdown && dropdown.firstChild) {
+      const firstResult = dropdown.firstChild.textContent;
+      loadAndRender(firstResult);
+      dropdown.innerHTML = ''; // Clear dropdown after selection
+    }
+  }
+});
+
 // Ensure dropdown is cleared when clicking outside
 document.addEventListener('click', (event) => {
   if (!document.getElementById('search-container').contains(event.target)) {
