@@ -87,7 +87,7 @@ searchBar.addEventListener('input', () => {
   updateSearchResults(matchingFiles);
 });
 
-// Update search functionality to handle 'Enter' key for selecting the first result
+// Update search functionality to clear the search bar and unfocus it after selection
 searchBar.addEventListener('keydown', (event) => {
   if (event.key === 'Enter') {
     const dropdown = document.getElementById('search-dropdown');
@@ -95,6 +95,8 @@ searchBar.addEventListener('keydown', (event) => {
       const firstResult = dropdown.firstChild.textContent;
       loadAndRender(firstResult);
       dropdown.innerHTML = ''; // Clear dropdown after selection
+      searchBar.value = ''; // Clear the search bar text
+      searchBar.blur(); // Unfocus the search bar
     }
   }
 });
