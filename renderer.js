@@ -2,6 +2,7 @@
 // This file is the renderer script for the Electron app. It handles loading and rendering markdown content in the DOM.
 
 const contentEl = document.getElementById('content');
+let searchBar = document.getElementById('search-bar'); // Use 'let' to avoid redeclaration issues
 
 /**
  * Converts markdown text into HTML using the `shortcutAPI.parseMarkdown` method and updates the `content` element in the DOM.
@@ -36,10 +37,75 @@ function loadAndRender(filename) {
 }
 
 /**
- * Automatically loads and renders a default markdown file (`vscode.md`) when the DOM is fully loaded.
+ * Automatically loads and renders a default markdown file (`VS Code.md`) when the DOM is fully loaded.
  */
 window.addEventListener('DOMContentLoaded', () => {
-  const defaultFile = 'vscode.md';
+  const defaultFile = 'VS Code.md';
   console.log('Loading the default file:', defaultFile);
   loadAndRender(defaultFile);
+});
+
+// Add functionality to handle search and display matching files
+const contentDiv = document.getElementById('content');
+
+// Function to update the search results dropdown
+function updateSearchResults(files) {
+  const dropdown = document.getElementById('search-dropdown');
+  if (!dropdown) {
+    const newDropdown = document.createElement('ul');
+    newDropdown.id = 'search-dropdown';
+    newDropdown.style.position = 'absolute';
+    newDropdown.style.backgroundColor = 'white';
+    newDropdown.style.color = 'black';
+    newDropdown.style.listStyle = 'none';
+    newDropdown.style.padding = '5px';
+    newDropdown.style.margin = '0';
+    newDropdown.style.border = '1px solid gray';
+    document.getElementById('search-container').appendChild(newDropdown);
+  }
+
+  const dropdownList = document.getElementById('search-dropdown');
+  dropdownList.innerHTML = '';
+
+  files.forEach(file => {
+    const listItem = document.createElement('li');
+    listItem.textContent = file;
+    listItem.style.cursor = 'pointer';
+    listItem.addEventListener('click', () => {
+      loadAndRender(file);
+      dropdownList.innerHTML = ''; // Clear dropdown after selection
+    });
+    dropdownList.appendChild(listItem);
+  });
+}
+
+// Event listener for search bar input
+searchBar.addEventListener('input', () => {
+  const query = searchBar.value.toLowerCase();
+  const allFiles = window.shortcutAPI.listMarkdownFiles();
+  const matchingFiles = allFiles.filter(file => file.toLowerCase().includes(query));
+  updateSearchResults(matchingFiles);
+});
+
+// Ensure dropdown is cleared when clicking outside
+document.addEventListener('click', (event) => {
+  if (!document.getElementById('search-container').contains(event.target)) {
+    const dropdown = document.getElementById('search-dropdown');
+    if (dropdown) {
+      dropdown.innerHTML = '';
+    }
+  }
+});
+
+// Update the '/' key focus logic to avoid conflicts
+window.addEventListener('keydown', (event) => {
+  if (event.key === '/' && !event.altKey && !event.ctrlKey && !event.metaKey && !event.shiftKey) {
+    event.preventDefault(); // Prevent default behavior of '/'
+    if (!searchBar) {
+      searchBar = document.getElementById('search-bar'); // Reassign if necessary
+    }
+    if (searchBar) {
+      searchBar.focus();
+    }
+  }
 });

@@ -1,0 +1,6 @@
+- Making overlay dragable. 
+- Highlight search with / or Cmd / while overlay is visible. 
+- Pressing enter chooses first result
+- Accessible with mouse
+- Scroll up and down with D, U, and K, and J keys. 
+- Ability to copy text
