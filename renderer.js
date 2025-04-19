@@ -105,12 +105,20 @@ function updateSearchResults(files) {
   }
 }
 
-// Event listener for search bar input
+// Automatically select the first search result if there are results
 searchBar.addEventListener('input', () => {
   const query = searchBar.value.toLowerCase();
   const allFiles = window.shortcutAPI.listMarkdownFiles();
   const matchingFiles = allFiles.filter(file => file.toLowerCase().includes(query));
   updateSearchResults(matchingFiles);
+
+  const dropdown = document.getElementById('search-dropdown');
+  if (dropdown && matchingFiles.length > 0) {
+    selectedIndex = 0; // Automatically select the first result
+    updateDropdownSelection(dropdown);
+  } else {
+    selectedIndex = -1; // Reset selection if no results
+  }
 });
 
 // Fix issue where multiple items are selected when navigating the dropdown

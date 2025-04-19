@@ -9,10 +9,10 @@
 - X Pressing ESC unfocuses.
 - X Scroll up and down with D, U, and K, and J keys. 
 - X Improve search header
+- X Remove search bugs
+- X Pressing enter choose first result 
 - Header search more like vs code
-- Remove search bugs
 - How to make it a legit app that doesn't need a terminal to run. 
-- Pressing enter choose first result 
 - Fixing cursor directional issue. 
 - Improve styling. 
 - Ability to search within Shortcut. 
