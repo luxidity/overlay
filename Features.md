@@ -8,10 +8,11 @@
 - X Add real content and begin using it. 
 - X Pressing ESC unfocuses.
 - X Scroll up and down with D, U, and K, and J keys. 
-- Improve search header to match vs code and be free of bugs
+- X Improve search header
+- Header search more like vs code
+- Remove search bugs
 - How to make it a legit app that doesn't need a terminal to run. 
 - Pressing enter choose first result 
-- Header better. 
 - Fixing cursor directional issue. 
 - Improve styling. 
 - Ability to search within Shortcut. 

@@ -220,8 +220,15 @@ window.addEventListener('keydown', (event) => {
 contentEl.setAttribute('tabindex', '0');
 
 // Add functionality to unfocus any focused area when 'Escape' is pressed
+// Update ESC key functionality to hide search results when the search bar is no longer selected
 window.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') {
     document.activeElement.blur(); // Unfocus the currently focused element
+
+    const dropdown = document.getElementById('search-dropdown');
+    if (dropdown) {
+      dropdown.innerHTML = ''; // Clear the dropdown
+      dropdown.style.display = 'none'; // Hide the dropdown
+    }
   }
 });
