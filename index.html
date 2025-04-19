@@ -12,17 +12,74 @@
       padding: 20px;
       margin: 0;
     }
+    /* Update styles for centering the search bar and dark mode friendly background */
+    #header {
+      width: 100%;
+      height: 50px;
+      background-color: #1e1e1e; /* Dark mode friendly background */
+      display: flex;
+      align-items: center;
+      justify-content: center; /* Center the search bar */
+      padding: 0 10px;
+      -webkit-app-region: drag; /* Enable drag for Electron */
+      cursor: move; /* Show 4-pointed directional cursor */
+    }
+    /* Ensure no extra white square or padding below the search bar */
+    #search-container {
+      flex-grow: 0;
+      margin: 0; /* Remove any margin */
+      padding: 0; /* Remove any padding */
+      -webkit-app-region: no-drag; /* Disable drag for the search bar */
+    }
+    #search-bar {
+      width: 80%;
+      max-width: 400px;
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      background-color: #2e2e2e; /* Dark mode friendly input background */
+      color: white; /* Light text for dark mode */
+    }
     #content {
       overflow-y: auto;
       max-height: 500px;
+      cursor: move;
+      -webkit-app-region: no-drag; /* Disable drag for content area */
     }
   </style>
 </head>
 <body>
-  <div id="search-container">
-    <input type="text" id="search-bar" placeholder="Search shortcuts...">
+  <div id="header">
+    <div id="search-container">
+      <input type="text" id="search-bar" placeholder="Search shortcuts...">
+    </div>
   </div>
   <div id="content"></div>
   <script src="renderer.js"></script>
+  <script>
+    // Add functionality to make the overlay draggable
+    let isDragging = false;
+    let offsetX, offsetY;
+
+    const overlay = document.body;
+
+    overlay.addEventListener('mousedown', (event) => {
+      isDragging = true;
+      offsetX = event.clientX - overlay.offsetLeft;
+      offsetY = event.clientY - overlay.offsetTop;
+      overlay.style.position = 'absolute';
+    });
+
+    document.addEventListener('mousemove', (event) => {
+      if (isDragging) {
+        overlay.style.left = `${event.clientX - offsetX}px`;
+        overlay.style.top = `${event.clientY - offsetY}px`;
+      }
+    });
+
+    document.addEventListener('mouseup', () => {
+      isDragging = false;
+    });
+  </script>
 </body>
 </html>
