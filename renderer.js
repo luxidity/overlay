@@ -74,9 +74,18 @@ function updateSearchResults(files) {
     listItem.addEventListener('click', () => {
       loadAndRender(file);
       dropdownList.innerHTML = ''; // Clear dropdown after selection
+      dropdownList.style.display = 'none'; // Hide the dropdown
+      searchBar.value = ''; // Clear the search bar text
+      searchBar.blur(); // Unfocus the search bar
     });
     dropdownList.appendChild(listItem);
   });
+
+  if (files.length > 0) {
+    dropdownList.style.display = 'block'; // Ensure dropdown is visible
+  } else {
+    dropdownList.style.display = 'none'; // Hide the dropdown if no matches
+  }
 }
 
 // Event listener for search bar input
@@ -95,18 +104,20 @@ searchBar.addEventListener('keydown', (event) => {
       const firstResult = dropdown.firstChild.textContent;
       loadAndRender(firstResult);
       dropdown.innerHTML = ''; // Clear dropdown after selection
+      dropdown.style.display = 'none'; // Hide the dropdown
       searchBar.value = ''; // Clear the search bar text
       searchBar.blur(); // Unfocus the search bar
     }
   }
 });
 
-// Ensure dropdown is cleared when clicking outside
+// Ensure dropdown is cleared and hidden when clicking outside
 document.addEventListener('click', (event) => {
   if (!document.getElementById('search-container').contains(event.target)) {
     const dropdown = document.getElementById('search-dropdown');
     if (dropdown) {
       dropdown.innerHTML = '';
+      dropdown.style.display = 'none'; // Hide the dropdown
     }
   }
 });
