@@ -18,7 +18,7 @@
 `Cmd + P + >`
 
 **Cycle Open Workspaces**  
-`Cmd + \``
+`Cmd + \`
 
 **Go Back**  
 `Ctrl + -`

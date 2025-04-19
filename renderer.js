@@ -48,38 +48,44 @@ window.addEventListener('DOMContentLoaded', () => {
 // Add functionality to handle search and display matching files
 const contentDiv = document.getElementById('content');
 
-// Update dropdown styling to remove rounded borders and match the search bar background
+// Adjust dropdown width to exactly match the search bar width
 function updateSearchResults(files) {
   const dropdown = document.getElementById('search-dropdown');
   if (!dropdown) {
     const newDropdown = document.createElement('ul');
     newDropdown.id = 'search-dropdown';
     newDropdown.style.position = 'absolute';
-    newDropdown.style.backgroundColor = '#2e2e2e'; // Match search bar background
-    newDropdown.style.color = '#d3d3d3'; // Light text for dark mode
+    newDropdown.style.backgroundColor = '#1e1e1e';
+    newDropdown.style.color = '#d4d4d4';
     newDropdown.style.listStyle = 'none';
-    newDropdown.style.padding = '5px';
+    newDropdown.style.padding = '0';
     newDropdown.style.margin = '0';
-    newDropdown.style.border = '1px solid #555'; // Subtle border for dark mode
+    newDropdown.style.border = '1px solid #3c3c3c';
+    newDropdown.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.5)';
+    newDropdown.style.maxHeight = '200px';
+    newDropdown.style.overflowY = 'auto';
+    newDropdown.style.fontFamily = 'Consolas, "Courier New", monospace';
+    newDropdown.style.fontSize = '13px';
     document.getElementById('search-container').appendChild(newDropdown);
   }
 
   const dropdownList = document.getElementById('search-dropdown');
+  dropdownList.style.width = `${searchBar.clientWidth}px`; // Use clientWidth for exact match
   dropdownList.innerHTML = '';
 
   files.forEach(file => {
     const listItem = document.createElement('li');
     listItem.textContent = file;
     listItem.style.cursor = 'pointer';
-    listItem.style.padding = '5px';
-    listItem.style.borderBottom = '1px solid #333'; // Subtle separator for items
-    listItem.style.backgroundColor = '#2e2e2e'; // Match dropdown background
-    listItem.style.color = '#d3d3d3'; // Match text color
+    listItem.style.padding = '8px 10px'; // Add padding for better spacing
+    listItem.style.borderBottom = '1px solid #3c3c3c'; // Subtle separator for items
+    listItem.style.backgroundColor = '#1e1e1e'; // Match dropdown background
+    listItem.style.color = '#d4d4d4'; // Match text color
     listItem.addEventListener('mouseover', () => {
-      listItem.style.backgroundColor = '#333'; // Highlight on hover
+      listItem.style.backgroundColor = '#2a2d2e'; // Highlight on hover
     });
     listItem.addEventListener('mouseout', () => {
-      listItem.style.backgroundColor = '#2e2e2e'; // Reset background on mouse out
+      listItem.style.backgroundColor = '#1e1e1e'; // Reset background on mouse out
     });
     listItem.addEventListener('click', () => {
       loadAndRender(file);
