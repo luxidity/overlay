@@ -43,3 +43,56 @@ window.addEventListener('DOMContentLoaded', () => {
   console.log('Loading the default file:', defaultFile);
   loadAndRender(defaultFile);
 });
+
+// Add functionality to handle search and display matching files
+const searchBar = document.getElementById('search-bar');
+const contentDiv = document.getElementById('content');
+
+// Function to update the search results dropdown
+function updateSearchResults(files) {
+  const dropdown = document.getElementById('search-dropdown');
+  if (!dropdown) {
+    const newDropdown = document.createElement('ul');
+    newDropdown.id = 'search-dropdown';
+    newDropdown.style.position = 'absolute';
+    newDropdown.style.backgroundColor = 'white';
+    newDropdown.style.color = 'black';
+    newDropdown.style.listStyle = 'none';
+    newDropdown.style.padding = '5px';
+    newDropdown.style.margin = '0';
+    newDropdown.style.border = '1px solid gray';
+    document.getElementById('search-container').appendChild(newDropdown);
+  }
+
+  const dropdownList = document.getElementById('search-dropdown');
+  dropdownList.innerHTML = '';
+
+  files.forEach(file => {
+    const listItem = document.createElement('li');
+    listItem.textContent = file;
+    listItem.style.cursor = 'pointer';
+    listItem.addEventListener('click', () => {
+      loadAndRender(file);
+      dropdownList.innerHTML = ''; // Clear dropdown after selection
+    });
+    dropdownList.appendChild(listItem);
+  });
+}
+
+// Event listener for search bar input
+searchBar.addEventListener('input', () => {
+  const query = searchBar.value.toLowerCase();
+  const allFiles = window.shortcutAPI.listMarkdownFiles();
+  const matchingFiles = allFiles.filter(file => file.toLowerCase().includes(query));
+  updateSearchResults(matchingFiles);
+});
+
+// Ensure dropdown is cleared when clicking outside
+document.addEventListener('click', (event) => {
+  if (!document.getElementById('search-container').contains(event.target)) {
+    const dropdown = document.getElementById('search-dropdown');
+    if (dropdown) {
+      dropdown.innerHTML = '';
+    }
+  }
+});
