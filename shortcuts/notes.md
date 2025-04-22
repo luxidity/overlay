@@ -12,7 +12,7 @@
 **Delete Note**  
 `Cmd + Del`
 
-**Bold Text**  
+**Bold Text**
 `Cmd + B`
 
 **Replace**  
@@ -24,6 +24,7 @@
 **Find Note**  
 `Cmd + Option + F`
 
+# This
 **Create Link**  
 `Cmd + K`
 
@@ -38,3 +39,6 @@
 
 **Attachment Browser**  
 `Cmd + 3`
+
+Duplicate Note: Command (⌘) + D
+

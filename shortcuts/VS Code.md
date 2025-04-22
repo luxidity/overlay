@@ -1,94 +1,126 @@
 ## VS Code Shortcuts
 
-### Main Workflow
+**Reveal in Finder**
+`Cmd + k, r`
 
-**Bread Crumb**  
+**Zen Mode**
+`Cmd + k, z`
+
+**Problems Panel**
+`Cmd + Shift + m`
+
+**Markdown Preview**
+`Cmd + k, v`
+
+**IntelliSense Completion Widget**
+`Shift + space`
+
+**Fold Code**
+`Cmd + k, Cmd + l`
+
+**Fold All Regions**
+`Cmd + k, 0`
+
+**Unfold All Regions**
+`Cmd + k, Cmd + j`
+
+**Multi Cursor Select**
+`Just hold Option and click or arrows`
+
+**Go to Symbol in file**
+`Cmd + Shift + o`
+
+**Undo Cursor**
+`Cmd + u`
+
+**Open Terminal** 
+`Ctrl + backtick`
+
+**Highlight Line Down**  
+`Cmd + l`
+
+**Switch Tabs**  
+`Shift + Cmd + [` or `Shift + Cmd + ]`
+
+**Breadcrumb**  
 `Shift + Cmd + .`
 
-**Format Selection**  
-`Cmd + K + Cmd + F`
-
-**Format Document**  
-`Shift + Option + F`
+**Shortcuts**
+`Cmd + k, Cmd + s`
 
 **Open Recently Used Files**  
-`Cmd + P`
+`Cmd + p`
 
 **Run Any Function**  
-`Cmd + P + >`
+`Cmd + p, >`
+
+**Jump to Line**  
+`Ctrl + g`
 
 **Cycle Open Workspaces**  
-`Cmd + \`
+`Cmd + backtick`
 
 **Go Back**  
 `Ctrl + -`
 
 **Go Forward**  
-`Ctrl + =`
-
-**Next Tab**  
-`Ctrl + Tab`
-
-**Previous Tab**  
-`Ctrl + Shift + Tab`
-
-**Jump to Line**  
-`Ctrl + G`
-
-**Forward/Back**  
-`Shift + Cmd + [` / `Shift + Cmd + ]`
+`Ctrl + Shift + -` or `Ctrl + =`
 
 **Copilot Inline Chat**  
-`Cmd + I`
+`Cmd + i`
 
+**Open Extensions**  
+`Cmd + Shift + x`
 
-
-### Helpful
-
-**Cursor Undo**  
-`Cmd + U`
-
-**Organize Imports**  
-`Shift + Option + O`
+**Open Explorer**  
+`Cmd + Shift + e`
 
 **Fold**  
 `Option + Cmd + [`
 
-**File Search**  
-`Cmd + Shift + F`
+**Split Editor**  
+`Cmd + \`
 
-**New File**  
-`Cmd + N`
+**Format Selection**  
+`Cmd + k, Cmd + f`
 
-**Hide/Show Terminal**  
-`Cmd + K` (Doesn't work)
+**Format Document**  
+`Shift + Option + f`
 
-**Open Extensions**  
-`Cmd + Shift + X`
-
-**Open Explorer**  
-`Cmd + Shift + E`
-
-**Delete Line**  
-`Cmd + Shift + K`
+**Quick Fix Menu**  
+`Cmd + .`
 
 **Open Recent**  
-`Ctrl + R`
-
-**Clear Console**  
-`Cmd + K`
+`Ctrl + r`
 
 **Delete Left**  
-`Cmd + Delete`
+`Cmd + delete`
 
 **Delete Right**  
-`Fn + Cmd + Delete`
-
-**Delete Right (Alt)**  
-`Ctrl + Delete`
+`Fn + Cmd + delete`
 
 **Go to Bracket**  
 `Shift + Cmd + \`
+
+**Cursor Undo**  
+`Cmd + u`
+
+### Helpful
+
+**Organize Imports**  
+`Shift + Option + o`
+
+**File Search**  
+`Cmd + Shift + f`
+
+**New File**  
+`Cmd + n`
+
+**Delete Line**  
+`Cmd + Shift + k`
+
+**Clear Console**  
+`Cmd + k`
 
 **Accept Copilot Inline Chat**  
 `Cmd + Enter`
@@ -100,52 +132,49 @@
 `Cmd + Enter`
 
 **Remove Line Breaks**  
-`Ctrl + J`
+`Ctrl + j`
 
 **Open External Terminal**  
-`Shift + Cmd + \``
+`Shift + Cmd + \`
 
 **New Terminal**  
-`Ctrl + Shift + \``
+`Ctrl + Shift + \`
 
 **Resize Terminal**  
 `Ctrl + Cmd + ↑` / `Ctrl + Cmd + ↓`
 
 **Terminal Recent Commands**  
-`Cmd + Shift + R`
+`Cmd + Shift + r`
 
 **Close All Tabs**  
-`Cmd + K + Cmd + W`
+`Cmd + k, Cmd + w`
 
 **Toggle Copilot Chat**  
-`Ctrl + Cmd + I`
+`Ctrl + Cmd + i`
 
 **Open File in Explorer**  
 `Cmd + ↓`
 
 **Hide Left Bar**  
-`Cmd + B`
+`Cmd + b`
 
 **Minimize Window**  
-`Cmd + M`
+`Cmd + m`
 
 **Quit**  
-`Cmd + Q`
+`Cmd + q`
 
 **Next Selection (Multi‑Select)**  
-`Cmd + D`
+`Cmd + d`
 
 **Chord Keybinding**  
-`Cmd + K`
+`Cmd + k`
 
 **Cut Entire Line**  
-`Cmd + X`
+`Cmd + x`
 
 **Open Settings**  
 `Cmd + ,`
-
-**Quick Fix Menu**  
-`Cmd + .`
 
 **Toggle Comment**  
 `Cmd + /`
@@ -171,11 +200,11 @@
 **Switch Between Windows**  
 `Ctrl + w`
 
-**Split Editor**  
-`Cmd + \`
-
 **Move to Side**  
 `Ctrl + Cmd + ←` / `Ctrl + Cmd + →`
 
-**Create Box**  
-`Shift + Option + Space`
+**Next Tab**  
+`Ctrl + tab`
+
+**Previous Tab**  
+`Ctrl + Shift + tab`
