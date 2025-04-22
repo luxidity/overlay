@@ -1,39 +1,39 @@
 ## VS Code Shortcuts
 
-**Reveal in Finder**
+**Reveal in Finder**  
 `Cmd + k, r`
 
-**Zen Mode**
+**Zen Mode**  
 `Cmd + k, z`
 
-**Problems Panel**
+**Problems Panel**  
 `Cmd + Shift + m`
 
-**Markdown Preview**
+**Markdown Preview**  
 `Cmd + k, v`
 
-**IntelliSense Completion Widget**
+**IntelliSense Completion Widget**  
 `Shift + space`
 
-**Fold Code**
+**Fold Code**  
 `Cmd + k, Cmd + l`
 
-**Fold All Regions**
+**Fold All Regions**  
 `Cmd + k, 0`
 
-**Unfold All Regions**
+**Unfold All Regions**  
 `Cmd + k, Cmd + j`
 
-**Multi Cursor Select**
+**Multi Cursor Select**  
 `Just hold Option and click or arrows`
 
-**Go to Symbol in file**
+**Go to Symbol in file**  
 `Cmd + Shift + o`
 
-**Undo Cursor**
+**Undo Cursor**  
 `Cmd + u`
 
-**Open Terminal** 
+**Open Terminal**  
 `Ctrl + backtick`
 
 **Highlight Line Down**  
